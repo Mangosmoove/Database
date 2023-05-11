@@ -1,0 +1,444 @@
+Arinah Karim
+A3 output
+
+
+Problem 1
+----Westerosi----
+CREATE FUNCTION
+CREATE TRIGGER
+attempting insertion into Westerosi
+psql:a3.sql:287: ERROR:  wid already exists in Westerosi relation
+CONTEXT:  PL/pgSQL function pk_constraint_westerosi() line 4 at RAISE
+psql:a3.sql:288: ERROR:  null value in column "wid" of relation "westerosi" violates not-null constraint
+DETAIL:  Failing row contains (null, DavyJones, Highgarden).
+CREATE FUNCTION
+CREATE TRIGGER
+attempting deletion from Westerosi
+DELETE 1
+inserting values back for wid=1001 for future usage
+INSERT 0 1
+INSERT 0 1
+INSERT 0 2
+INSERT 0 8
+INSERT 0 2
+----House----
+CREATE FUNCTION
+CREATE TRIGGER
+attempting insertion of houses
+psql:a3.sql:367: ERROR:  house name already exists in House relation
+CONTEXT:  PL/pgSQL function pk_constraint_house() line 4 at RAISE
+psql:a3.sql:368: ERROR:  null value in column "hname" of relation "house" violates not-null constraint
+DETAIL:  Failing row contains (null, Highgarden).
+inserting new house name
+INSERT 0 1
+    hname    
+-------------
+ NightsWatch
+ Baratheon
+ Lannister
+ Stark
+ Martell
+ Targaryen
+ Tyrell
+ Luddy
+(8 rows)
+
+DELETE 1
+    hname    
+-------------
+ NightsWatch
+ Baratheon
+ Lannister
+ Stark
+ Martell
+ Targaryen
+ Tyrell
+(7 rows)
+
+CREATE FUNCTION
+CREATE TRIGGER
+Deleting house Baratheon
+DELETE 1
+Deleting house Baratheon again since it should delete nothing
+DELETE 0
+Inserting values back for house Baratheon
+INSERT 0 1
+INSERT 0 3
+INSERT 0 4
+----OfHouse----
+CREATE FUNCTION
+CREATE TRIGGER
+attempting insertion of invalid house name
+psql:a3.sql:440: ERROR:  house name does not exist in House relation, error inserting.
+CONTEXT:  PL/pgSQL function fk_constraint_ofhouse() line 4 at RAISE
+attempting insertion of invalid house name and wid
+psql:a3.sql:442: ERROR:  house name does not exist in House relation, error inserting.
+CONTEXT:  PL/pgSQL function fk_constraint_ofhouse() line 4 at RAISE
+CREATE FUNCTION
+CREATE TRIGGER
+ wid  
+------
+ 1006
+ 1007
+ 1010
+(3 rows)
+
+Deleting Baratheon house
+DELETE 3
+ wid 
+-----
+(0 rows)
+
+replacing wid from house Baratheon
+INSERT 0 3
+CREATE FUNCTION
+CREATE TRIGGER
+attempting to delete a wid(1020) not in OfHouse
+DELETE 0
+attempting to delete a wid(0001) not in Westerosi
+DELETE 0
+deleting a tuple from OfHouse
+DELETE 1
+inserting back values into OfHouse
+INSERT 0 1
+ hname 
+-------
+ Stark
+(1 row)
+
+getting rid of wid(1008)
+DELETE 1
+ hname 
+-------
+(0 rows)
+
+replacing values
+INSERT 0 1
+DROP TRIGGER
+DROP TRIGGER
+DROP TRIGGER
+DROP TRIGGER
+DROP TRIGGER
+DROP TRIGGER
+DROP TRIGGER
+
+
+
+Problem 2
+CREATE TABLE
+CREATE TABLE
+INSERT 0 4
+INSERT 0 4
+SELECT 2
+CREATE FUNCTION
+CREATE TRIGGER
+CREATE TRIGGER
+before inserting into R
+ a  | b 
+----+---
+ 10 | 1
+ 21 | 3
+ 54 | 7
+ 68 | 2
+(4 rows)
+
+ a  
+----
+ 68
+ 21
+(2 rows)
+
+inserting into R (40,5)
+INSERT 0 1
+ a  | b 
+----+---
+ 10 | 1
+ 21 | 3
+ 54 | 7
+ 68 | 2
+ 40 | 5
+(5 rows)
+
+ a  
+----
+ 68
+ 40
+ 21
+(3 rows)
+
+inserting into S(7) which exists in A
+INSERT 0 1
+ b 
+---
+ 5
+ 3
+ 1
+ 2
+ 7
+(5 rows)
+
+ a  
+----
+ 68
+ 40
+ 21
+ 54
+(4 rows)
+
+DROP TRIGGER
+DROP TRIGGER
+
+
+
+Problem 3
+CREATE VIEW
+CREATE VIEW
+CREATE FUNCTION
+CREATE TRIGGER
+ count 
+-------
+    38
+(1 row)
+
+INSERT 0 1
+ count 
+-------
+    39
+(1 row)
+
+DROP TRIGGER
+DROP FUNCTION
+DROP VIEW
+DROP VIEW
+deleting values
+DELETE 1
+
+
+
+Problem 4
+CREATE VIEW
+before deleting a wid(1002) from view
+ wid  
+------
+ 1001
+ 1002
+ 1004
+ 1005
+ 1006
+ 1007
+ 1009
+ 1010
+ 1011
+ 1012
+ 1013
+ 1014
+ 1015
+ 1016
+ 1017
+ 1018
+ 1019
+(17 rows)
+
+  skill   
+----------
+ Archery
+ Politics
+(2 rows)
+
+CREATE FUNCTION
+CREATE TRIGGER
+attempting deletion for wid=1002
+DELETE 1
+ wid  
+------
+ 1001
+ 1004
+ 1005
+ 1006
+ 1007
+ 1009
+ 1010
+ 1011
+ 1012
+ 1013
+ 1014
+ 1015
+ 1016
+ 1017
+ 1018
+ 1019
+(16 rows)
+
+ skill 
+-------
+(0 rows)
+
+DROP TRIGGER
+DROP FUNCTION
+DROP VIEW
+inserting skills back in for future problems
+INSERT 0 2
+  skill   
+----------
+ Archery
+ Politics
+(2 rows)
+
+
+
+Problem 5
+CREATE FUNCTION
+DROP VIEW
+CREATE VIEW
+    hname    
+-------------
+ NightsWatch
+ Targaryen
+(2 rows)
+
+
+
+Problem 6
+CREATE VIEW
+CREATE FUNCTION
+ wid1 
+------
+ 1018
+(1 row)
+
+DROP VIEW
+
+
+
+Problem 7
+CREATE FUNCTION
+  s1  |  s2  
+------+------
+ 1004 | 1005
+ 1004 | 1019
+ 1005 | 1004
+ 1005 | 1019
+ 1009 | 1017
+ 1010 | 1011
+ 1010 | 1018
+ 1011 | 1010
+ 1011 | 1018
+ 1012 | 1018
+ 1017 | 1009
+ 1018 | 1010
+ 1018 | 1011
+ 1018 | 1012
+ 1019 | 1004
+ 1019 | 1005
+(16 rows)
+
+DROP FUNCTION
+
+
+
+Problem 8
+CREATE VIEW
+   hname   
+-----------
+ Baratheon
+ Lannister
+ Stark
+(3 rows)
+
+DROP VIEW
+
+
+
+Problem 9
+CREATE FUNCTION
+ wid1 | wid2 
+------+------
+ 1001 | 1019
+ 1001 | 1014
+ 1001 | 1002
+ 1001 | 1007
+ 1001 | 1008
+ 1002 | 1014
+ 1002 | 1008
+ 1002 | 1019
+ 1002 | 1001
+ 1002 | 1007
+ 1003 | 1005
+ 1003 | 1012
+ 1005 | 1012
+ 1005 | 1003
+ 1007 | 1002
+ 1007 | 1014
+ 1007 | 1019
+ 1007 | 1001
+ 1007 | 1008
+ 1008 | 1014
+ 1008 | 1002
+ 1008 | 1019
+ 1008 | 1001
+ 1008 | 1007
+ 1009 | 1013
+ 1009 | 1011
+ 1009 | 1016
+ 1009 | 1010
+ 1009 | 1017
+ 1010 | 1013
+ 1010 | 1011
+ 1010 | 1009
+ 1010 | 1016
+ 1010 | 1017
+ 1011 | 1009
+ 1011 | 1013
+ 1011 | 1016
+ 1011 | 1017
+ 1011 | 1010
+ 1012 | 1005
+ 1012 | 1003
+ 1013 | 1009
+ 1013 | 1017
+ 1013 | 1011
+ 1013 | 1010
+ 1013 | 1016
+ 1014 | 1002
+ 1014 | 1008
+ 1014 | 1019
+ 1014 | 1007
+ 1014 | 1001
+ 1015 | 1018
+ 1016 | 1013
+ 1016 | 1010
+ 1016 | 1011
+ 1016 | 1017
+ 1016 | 1009
+ 1017 | 1011
+ 1017 | 1010
+ 1017 | 1009
+ 1017 | 1013
+ 1017 | 1016
+ 1018 | 1015
+ 1019 | 1002
+ 1019 | 1014
+ 1019 | 1007
+ 1019 | 1001
+ 1019 | 1008
+(68 rows)
+
+DROP FUNCTION
+
+
+
+
+Problem 10
+CREATE VIEW
+CREATE FUNCTION
+CREATE VIEW
+CREATE FUNCTION
+    hname    
+-------------
+ NightsWatch
+(1 row)
+
+DROP FUNCTION
+DROP FUNCTION
+DROP VIEW
+DROP VIEW

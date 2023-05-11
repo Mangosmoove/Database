@@ -1,0 +1,14 @@
+Arinah Karim
+Assignment 4 Outputs
+
+Problem 1
+CREATE VIEW
+  hname  
+---------
+ Martell
+(1 row)
+
+DROP VIEW
+
+
+

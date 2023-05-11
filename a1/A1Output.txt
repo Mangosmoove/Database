@@ -1,0 +1,107 @@
+Arinah Karim
+
+Problem 2
+ wid  |     skill     |   nkname   
+------+---------------+------------
+ 1001 | Archery       | NickleBack
+ 1005 | Swordsmanship | McPhatter
+(2 rows)
+
+
+Problem 3
+ wid  |  wname  |  wlocation   
+------+---------+--------------
+ 1003 | Sansa   | KingsLanding
+ 1008 | Arya    | Winterfell
+ 1009 | Bran    | Winterfell
+ 1011 | Catelyn | CasterlyRock
+ 1017 | Robb    | Stormlands
+(5 rows)
+
+
+Problem 4
+ wid  
+------
+ 1003
+ 1008
+ 1016
+ 1018
+ 1020
+(5 rows)
+
+
+Problem 5
+1)
+ERROR:  duplicate key value violates unique constraint "westerosi_pkey"
+DETAIL:  Key (wid)=(1001) already exists.
+
+2)
+DELETE 3
+
+3)
+ERROR:  update or delete on table "westerosi" violates foreign key constraint "ofhouse_wid_fkey" on table "ofhouse"
+DETAIL:  Key (wid)=(1011) is still referenced from table "ofhouse".
+
+4)
+ERROR:  insert or update on table "westerosiskill" violates foreign key constraint "westerosiskill_wid_fkey"
+DETAIL:  Key (wid)=(1022) is not present in table "westerosi"
+
+Problem 6
+ wid  | wname  |   hname   
+------+--------+-----------
+ 1004 | Cersei | Lannister
+ 1005 | Jamie  | Lannister
+ 1013 | Tywin  | Lannister
+(3 rows)
+
+
+Problem 7
+    hname    
+-------------
+ Baratheon
+ Lannister
+ NightsWatch
+ Stark
+(4 rows)
+
+
+Problem 8
+ wid  |  wname  |   wlocation   
+------+---------+---------------
+ 1003 | Sansa   | KingsLanding
+ 1004 | Cersei  | KingsLanding
+ 1005 | Jamie   | CasterlyRock
+ 1006 | Joffrey | BlackwaterBay
+ 1009 | Bran    | Winterfell
+ 1010 | Renly   | BlackwaterBay
+ 1012 | Samwell | CastleBlack
+ 1014 | Brienne | Winterfell
+ 1017 | Robb    | Stormlands
+ 1018 | Theon   | Winterfell
+ 1019 | Tyrion  | Highgarden
+(11 rows)
+
+
+Problem 9
+ wid  
+------
+ 1011
+ 1006
+ 1007
+ 1017
+(4 rows)
+
+
+Problem 10
+ wid  
+------
+ 1016
+ 1015
+ 1007
+ 1011
+ 1008
+ 1002
+ 1001
+ 1020
+ 1013
+(9 rows)

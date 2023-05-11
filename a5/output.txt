@@ -1,0 +1,100 @@
+Arinah Karim
+Assignment 5 Output
+
+
+Problem 1
+RA SQL
+ wid  |  wname  
+------+---------
+ 1011 | Catelyn
+ 1003 | Sansa
+ 1005 | Jamie
+(3 rows)
+
+Optimized query
+ wid  |  wname  
+------+---------
+ 1003 | Sansa
+ 1005 | Jamie
+ 1011 | Catelyn
+(3 rows)
+
+
+
+
+Problem 2
+RA sql
+    hname    |   kingdom    
+-------------+--------------
+ Targaryen   | KingsLanding
+ Lannister   | CasterlyRock
+ Baratheon   | KingsLanding
+ Baratheon   | KingsLanding
+ NightsWatch | CastleBlack
+ Lannister   | CasterlyRock
+(6 rows)
+
+Optimized query
+    hname    |   kingdom    
+-------------+--------------
+ Baratheon   | KingsLanding
+ Lannister   | CasterlyRock
+ NightsWatch | CastleBlack
+ Stark       | Winterfell
+ Targaryen   | KingsLanding
+ Tyrell      | Highgarden
+(6 rows)
+
+
+
+
+Problem 3
+RA sql
+ wid  
+------
+ 1014
+ 1018
+(2 rows)
+
+Optimized query
+ wid  
+------
+ 1014
+ 1018
+(2 rows)
+
+
+
+
+Problem 4
+RA SQl
+ wid  
+------
+ 1006
+ 1007
+(2 rows)
+
+Optimized query
+ wid  
+------
+ 1006
+ 1007
+(2 rows)
+
+
+
+
+Problem 5
+RA SQL
+ wid  
+------
+ 1006
+ 1010
+(2 rows)
+
+Optimized RA
+ wid  
+------
+ 1006
+ 1010
+(2 rows)
